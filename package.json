@@ -1,0 +1,16 @@
+{
+  "name": "seleniumdigital",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.29.0"
+  }
+}
