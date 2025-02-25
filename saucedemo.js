@@ -35,7 +35,7 @@ async function saucedemologinaddtocart() {
         assert.strictEqual(cartCount, "1", 'cart tidak muncul angka "1"');
 
     } finally {
-        //await driver.quit();
+        await driver.quit();
     }
 }
 
