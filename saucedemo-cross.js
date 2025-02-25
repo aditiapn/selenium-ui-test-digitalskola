@@ -2,7 +2,7 @@ const { Builder, By, Key, until } = require("selenium-webdriver");
 const assert = require("assert");
 
 async function saucedemologincross() {
-    const browsers = ["chrome", "MicrosoftEdge"];
+    const browsers = ["chrome", "firefox", "MicrosoftEdge"];
 
     for (let browser of browsers) {
         //membuat koneksi dengan webdriver
