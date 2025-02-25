@@ -1,10 +1,17 @@
 const {Builder, By, Key, until} = require("selenium-webdriver");
-const assert = require('assert');
-const { title } = require("process");
+const assert = require("assert");
+const chrome = require("selenium-webdriver/chrome");
 
 async function saucedemologinaddtocart() {
+    //menambah chrome option buat menggunakan User-Agent seperti browser asli
+    let options = new chrome.Options();
+    options.addArguments("--headless");
 
-    let driver = await new Builder().forBrowser("chrome").build();
+    //membuat koneksi dengan webdriver
+    let driver = await new Builder()
+    .forBrowser("chrome")
+    .setChromeOptions(options)
+    .build();
 
     try {
         //membuka URL di browser
@@ -20,7 +27,7 @@ async function saucedemologinaddtocart() {
         //validasi login berhasil atau tidak
         let titleText = await driver.findElement(By.css(".app_logo")).getText();
         assert.strictEqual(
-            titleText.includes('Swag Labs'),
+            titleText.includes("Swag Labs"),
             true,
             'Title does not include "Swag Labs"'
         );
@@ -34,9 +41,10 @@ async function saucedemologinaddtocart() {
         // validasi cart sudah berisi item atau belum
         let cartCount = await driver.findElement(By.className("shopping_cart_badge")).getText();
         assert.strictEqual(cartCount, "1", 'cart tidak muncul angka "1"');
+        console.log("Testing Berhasil!");
 
     } finally {
-        //await driver.quit();
+        await driver.quit();
     }
 }
 
