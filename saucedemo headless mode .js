@@ -2,7 +2,7 @@ const {Builder, By, Key, until} = require("selenium-webdriver");
 const assert = require("assert");
 const chrome = require("selenium-webdriver/chrome");
 
-async function saucedemologinaddtocart() {
+async function saucedemologinheadless() {
     //menambah chrome option buat menggunakan User-Agent seperti browser asli
     let options = new chrome.Options();
     options.addArguments("--headless");
@@ -48,4 +48,4 @@ async function saucedemologinaddtocart() {
     }
 }
 
-saucedemologinaddtocart();
+saucedemologinheadless();
